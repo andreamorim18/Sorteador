@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sorteador de Números</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="background-effects">
+    <div class="gradient-orb orb-1"></div>
+    <div class="gradient-orb orb-2"></div>
+    <div class="gradient-orb orb-3"></div>
+  </div>
+
+  <main class="container">
+    <header class="header">
+      <div class="logo">
+        <span class="logo-icon">🎲</span>
+        <h1>Sorteador</h1>
+      </div>
+      <p class="tagline">Números aleatórios ao seu alcance</p>
+    </header>
+
+    <div class="content-grid">
+      <!-- Coluna de explicação -->
+      <section class="explanation-section">
+        <h2>Como funciona?</h2>
+        <div class="steps">
+          <div class="step">
+            <span class="step-number">1</span>
+            <div class="step-content">
+              <h3>Defina a quantidade</h3>
+              <p>Escolha quantos números você quer sortear de uma vez.</p>
+            </div>
+          </div>
+          <div class="step">
+            <span class="step-number">2</span>
+            <div class="step-content">
+              <h3>Configure o intervalo</h3>
+              <p>Determine os valores mínimo e máximo para o sorteio.</p>
+            </div>
+          </div>
+          <div class="step">
+            <span class="step-number">3</span>
+            <div class="step-content">
+              <h3>Evite repetições</h3>
+              <p>Ative a opção para garantir números únicos no resultado.</p>
+            </div>
+          </div>
+          <div class="step">
+            <span class="step-number">4</span>
+            <div class="step-content">
+              <h3>Clique em sortear!</h3>
+              <p>Veja os números sorteados aparecerem na tela.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Coluna do formulário -->
+      <section class="form-section">
+        <form id="sortear-form" novalidate>
+          <div class="form-group">
+            <label for="quantidade">Quantidade de números</label>
+            <input 
+              type="number" 
+              id="quantidade" 
+              name="quantidade" 
+              min="1" 
+              placeholder="Ex: 6"
+              aria-describedby="quantidade-error"
+              required
+            >
+            <span class="error-message" id="quantidade-error" role="alert" aria-live="polite"></span>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="minimo">Valor mínimo</label>
+              <input 
+                type="number" 
+                id="minimo" 
+                name="minimo" 
+                placeholder="Ex: 1"
+                aria-describedby="minimo-error"
+                required
+              >
+              <span class="error-message" id="minimo-error" role="alert" aria-live="polite"></span>
+            </div>
+
+            <div class="form-group">
+              <label for="maximo">Valor máximo</label>
+              <input 
+                type="number" 
+                id="maximo" 
+                name="maximo" 
+                placeholder="Ex: 60"
+                aria-describedby="maximo-error"
+                required
+              >
+              <span class="error-message" id="maximo-error" role="alert" aria-live="polite"></span>
+            </div>
+          </div>
+
+          <div class="form-group checkbox-group">
+            <label class="checkbox-label">
+              <input 
+                type="checkbox" 
+                id="nao-repetir" 
+                name="nao-repetir"
+                aria-describedby="nao-repetir-info"
+              >
+              <span class="checkbox-custom"></span>
+              <span class="checkbox-text">Não repetir números</span>
+            </label>
+            <small id="nao-repetir-info" class="checkbox-info">
+              Garante que cada número sorteado seja único
+            </small>
+          </div>
+
+          <button type="submit" id="btn-sortear" class="btn-sortear">
+            <span class="btn-text">Sortear</span>
+            <span class="btn-icon">🎯</span>
+          </button>
+        </form>
+
+        <!-- Área de mensagens -->
+        <div id="message-area" class="message-area" role="status" aria-live="polite"></div>
+
+        <!-- Área de resultados -->
+        <div id="results-area" class="results-area">
+          <h3 class="results-title">Números Sorteados</h3>
+          <div id="numbers-container" class="numbers-container"></div>
+        </div>
+      </section>
+    </div>
+
+    <footer class="footer">
+      <p>Desenvolvido com 💜 por <strong>André</strong> | Desafio Rocketseat</p>
+    </footer>
+  </main>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
